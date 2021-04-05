@@ -1,0 +1,30 @@
+{
+  "name": "CMB CreditCard Bill Export Helper",
+  "version": "1.0",
+  "description": "This extension export the CMB Credit Bill online as csv file",
+  "manifest_version": 3,
+  "action": {
+    "default_icon": {
+      "16": "images/cmb16_gray.png",
+      "128": "images/cmb128_gray.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://mail.163.com/js6/*"],
+      "css": ["content.css"],
+      "js": [
+        "browser-csv-exporter.min.js",
+        "content.js"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting"],
+  "icons": {
+    "16": "images/cmb16.png",
+    "128": "images/cmb128.png"
+  }
+}
